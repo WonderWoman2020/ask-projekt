@@ -38,7 +38,7 @@
 FOLDER_GLOWNY="Zabawa-z-kernelem"
 KERNEL_SRC_FOLDER="kernel_src"
 LINK_DO_KERNELA="https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.10.88.tar.xz"
-NOWA_NAZWA_KERNELA="Siedlecka3"
+NOWA_NAZWA_KERNELA="Moj-nowy-kernel1"
 ARCHITEKTURA="x86_64"
 USTAWIENIA_BOOTLOADERA="/etc/default/grub"
 
