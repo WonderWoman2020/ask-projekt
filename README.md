@@ -26,13 +26,15 @@ Należy wybrać opcję "Opcje zaawansowane...". Na następnym ekranie powinniśm
 
 ![ekran 2](./docs/ekran2.png)
 
-Wybieramy kernel z nazwą, jaką nadaliśmy w zmiennych na początku skryptu. Po wybraniu, system uruchomi się z nowym kernelem. Jeżeli wszystko zadziała, można używać systemu z nowym jądrem, czy przetestować jego wydajność wykonując testy benchmark.
+Wybieramy kernel z nazwą, jaką mu nadaliśmy. Po wybraniu, system uruchomi się z nowym kernelem. Jeżeli wszystko zadziała, można używać systemu z nowym jądrem i jeśli chcemy, również przetestować jego wydajność wykonując testy benchmark.
 
 ## Instrukcja uruchamiania
 
-Sposób obsługi programu został opisany również bezpośrednio w pliku skryptu (w komentarzu na początku pliku). Na początku skryptu są umieszczone zmienne, które można modyfikować, tj. architektura procesora, czy link, z którego zostaną pobrane pliki źródłowe jądra do kompilacji. Sama konfiguracja budowanego kernela odbywa się natomiast po włączeniu skryptu.
+Sposób obsługi programu został opisany również bezpośrednio w pliku skryptu (w komentarzu na początku pliku).
 
-**Uwaga:** Przed rozpoczęciem procesu kompilacji, upewnij się, że masz sporo wolnego miejsca, ok. 20 GB lub więcej, ponieważ pliki tymczasowe, które się tworzą podczas kompilacji jądra zajmują dużo miejsca.
+Na początku skryptu są umieszczone zmienne, które można zmodyfikować przed jego wykonaniem, tj. architektura procesora, nazwa dla kompilowanego kernela, czy link, z którego zostaną pobrane pliki źródłowe jądra do kompilacji. Sama konfiguracja budowanego kernela odbywa się natomiast po włączeniu skryptu.
+
+**Uwaga:** Przed rozpoczęciem procesu kompilacji, upewnij się, że masz sporo wolnego miejsca na dysku, ok. 20 GB lub więcej, ponieważ pliki tymczasowe, które się tworzą podczas kompilacji jądra, zajmują dużo pamięci.
 
 Skrypt można uruchomić w systemie Linux w standardowy sposób:
 
@@ -47,18 +49,34 @@ chmod +rw auto_kernel.sh
 ./auto_kernel.sh
 ```
 
-Jeśli po skompilowaniu kernela użytkownik chce przetestować nowe jądro, skrypty do testowania w folderze `TestowanieKernela` można uruchamiać w analogiczny sposób. Najpierw należy wykonać skrypt instalujący narzędzie phoronix-test-suite `phoronix_instalacja.sh`, a następnie uruchomić testy benchmark `auto_testy.sh`. W pliku `lista_testow.txt` można dodać lub usunąć interesujące nas testy z dostępnych w narzędziu phoronix-test-suite.
+Jeśli po skompilowaniu kernela użytkownik chce przetestować nowe jądro, można skorzystać z dodatkowych skryptów do testowania parametrów nowego kernela znajdujących się w folderze `TestowanieKernela`.
+
+**Uruchamianie skryptów do testowania**
+
+Skrypty te można uruchamiać w analogiczny sposób, jak główny skrypt do kompilacji. W pliku `lista_testow.txt` można dodać lub usunąć interesujące nas testy z dostępnych w narzędziu phoronix-test-suite. Uruchamianie:
+
+```
+# najpierw należy wykonać skrypt instalujący narzędzie phoronix-test-suite
+chmod +rwx phoronix_instalacja.sh
+./phoronix_instalacja.sh
+
+# następnie można uruchomić testy benchmark
+chmod +rwx auto_testy.sh
+./auto_testy.sh
+```
 
 ## Menu aplikacji
 
 Program po uruchomieniu najpierw pobiera i rozpakowuje pliki źródłowe jądra Linux spod linku podanego w zmiennych na początku skryptu. Następnie użytkownikowi zadawane jest pytanie:
 
+1. Tworzenie startowego pliku konfiguracyjnego
 ```
 Czy chcesz stworzyć nowy plik konfiguracyjny (.config)? (T/n)
 ```
 
 Za pierwszym uruchamieniem aplikacji dla danego kernela, powinniśmy wybrać opcję 'T', aby został utworzony plik z domyślną konfiguracją. Następnie można przejść do samodzielnej zmiany ustawień:
 
+2. Modyfikowanie domyślnej konfiguracji
 ```
 Czy chcesz zmodyfikować plik konfiguracyjny (.config)? (T/n)
 ```
@@ -75,18 +93,24 @@ Jeśli jesteśmy już zadowolenie z wybranych ustawień, powinniśmy wpisać opc
 
 Następnie, użytkownik będzie miał wybór, czy chce wykonać kompilację jądra teraz, czy zostawić ten proces na później - kompilacja jest dość długotrwałym procesem i może zająć ok. 30 minut lub więcej:
 
+3. Kompilacja i instalacja jądra
+
 ```
-Czy chcesz teraz skompilować kernel i moduły? (T/n) (Odpowiedź 'n' wyłączy program. Aby wrócić do obecnego stanu tworzenia kernela wystarczy go włączyć ponownie z tego samego katalogu, w jakim został uruchomiony teraz)
+Czy chcesz teraz skompilować kernel i moduły? (T/n) (Odpowiedź 'n' wyłączy program.
+Aby wrócić do obecnego stanu tworzenia kernela wystarczy go włączyć ponownie z tego
+samego katalogu, w jakim został uruchomiony teraz)
 ```
 
 Jak wyjaśniono w podpowiedzi, po wybraniu opcji 'n' wyjdziemy z programu, a żeby wznowić pracę z tego samego etapu, na którym ją zakończyliśmy, wystarczy ponownie uruchomić skrypt będąc w tej samej lokalizacji w konsoli, w której go uruchomiliśmy (ze względu na tworzone przez skrypt foldery z plikami źródłowymi jądra i plikiem konfiguracyjnym).
 
-Wybierając opcję 'T' natomiast, od razu rozpocznie się proces kompilacji oraz instalacji nowego jądra. Od tego momentu nie trzeba już nic podawać do skryptu, można zostawić maszynę, a kompilacja wykona się bez naszego udziału.
+Wybierając natomiast opcję 'T', od razu rozpocznie się proces kompilacji oraz instalacji nowego jądra. Od tego momentu nie trzeba już podawać żadnych danych do skryptu - można zostawić maszynę, a kompilacja wykona się bez naszego udziału.
 
-**Uwaga:** Podczas kompilacji można napotkać na problem z certyfikatami i kluczami - [tutaj](https://stackoverflow.com/questions/67670169/compiling-kernel-gives-error-no-rule-to-make-target-debian-certs-debian-uefi-ce#:~:text=This%20seems%20to%20be%20the%20way%20to%20go%20with%20the%20current%20version) można znaleźć obejście dla tego problemu.
+**Uwaga:** Podczas kompilacji można napotkać na problem z certyfikatami i kluczami - [tutaj](https://stackoverflow.com/questions/67670169/compiling-kernel-gives-error-no-rule-to-make-target-debian-certs-debian-uefi-ce#:~:text=This%20seems%20to%20be%20the%20way%20to%20go%20with%20the%20current%20version) można znaleźć obejście dla tego problemu. Można spróbować wykonać kompilację bez uprzedniego zastosowania tej porady, a dokonać zmian tylko, jeśli błąd wystąpi - może to jednak oznaczać konieczność ponownego uruchomienia procesu kompilacji i ręczego usunięcia dotychczasowo skompilowanych plików tymczasowych (nie należy oczywiście usuwać pliku konfiguracyjnego!).
 
 ## Kernele do kompilacji i narzędzia benchmark
 
 Pliki źródłowe różnych wersji jądra Linux można pobrać np. ze strony [kernel.org](https://kernel.org/) lub bezpośrednio z repozytorium twórcy, Linusa Torvaldsa - [linux](https://github.com/torvalds/linux).
 
-Aby testować wydajność skompilowanych kerneli, można użyć narzędzia do testów benchmark [phoronix-test-suite](https://github.com/phoronix-test-suite/phoronix-test-suite). W katalogu `TestowanieKernela` można znaleźć dodatkowy skrypt instalujący to oprogramowanie oraz drugi, do uruchamiania serii testów benchmark.
+Aby testować wydajność skompilowanych kerneli, można użyć narzędzia do testów benchmark [phoronix-test-suite](https://github.com/phoronix-test-suite/phoronix-test-suite). W katalogu `TestowanieKernela` można znaleźć dodatkowy skrypt instalujący to oprogramowanie - `phoronix_instalacja.sh` oraz drugi, do uruchamiania serii testów benchmark - `auto_testy.sh`. Sposób ich uruchamiania został również opisany w sekcji [instrukcja uruchamiania](#instrukcja-uruchamiania).
+
+Skrypt do testowania wczytuje testy do wykonania z pliku `lista_testow.txt`. Testy są w nim podzielone na grupy tj. "Pamięć", "Procesor" i w folerach o takich nazwach będą się zapisywać poszczególne wyniki testów w plikach .csv.
