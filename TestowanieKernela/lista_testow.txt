@@ -1,0 +1,14 @@
+#Procesor
+compress-gzip
+graphics-magick
+#Dyski
+tiobench
+#Grafika
+gputest
+#Pamiec
+mbw
+ramspeed
+#System
+compress-rar
+osbench
+sysbench
