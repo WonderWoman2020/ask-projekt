@@ -32,7 +32,7 @@ Wybieramy kernel z nazwą, jaką nadaliśmy w zmiennych na początku skryptu. Po
 
 Sposób obsługi programu został opisany również bezpośrednio w pliku skryptu (w komentarzu na początku pliku). Na początku skryptu są umieszczone zmienne, które można modyfikować, tj. architektura procesora, czy link, z którego zostaną pobrane pliki źródłowe jądra do kompilacji. Sama konfiguracja budowanego kernela odbywa się natomiast po włączeniu skryptu.
 
-**Uwaga:** Przed rozpoczęciem procesu kompilacji, upewnij się, że masz sporo wolnego miejsca, ok. 15 GB lub więcej, ponieważ pliki tymczasowe, które się tworzą podczas kompilacji jądra zajmują dużo miejsca.
+**Uwaga:** Przed rozpoczęciem procesu kompilacji, upewnij się, że masz sporo wolnego miejsca, ok. 20 GB lub więcej, ponieważ pliki tymczasowe, które się tworzą podczas kompilacji jądra zajmują dużo miejsca.
 
 Skrypt można uruchomić w systemie Linux w standardowy sposób:
 
