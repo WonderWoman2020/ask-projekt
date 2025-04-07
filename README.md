@@ -49,7 +49,7 @@ chmod +rw auto_kernel.sh
 ./auto_kernel.sh
 ```
 
-Jeśli po skompilowaniu kernela użytkownik chce przetestować nowe jądro, można skorzystać z dodatkowych skryptów do testowania parametrów nowego kernela znajdujących się w folderze `TestowanieKernela`.
+Jeśli po skompilowaniu kernela użytkownik chce przetestować nowe jądro, można skorzystać z dodatkowych skryptów do testowania parametrów nowego kernela znajdujących się w folderze `TestowanieKernela`. Sposób ich używania opisano w sekcji [Kernele do kompilacji i narzędzia benchmark](#kernele-do-kompilacji-i-narzędzia-benchmark).
 
 ## Menu aplikacji
 
