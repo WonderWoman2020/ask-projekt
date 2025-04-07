@@ -51,20 +51,6 @@ chmod +rw auto_kernel.sh
 
 Jeśli po skompilowaniu kernela użytkownik chce przetestować nowe jądro, można skorzystać z dodatkowych skryptów do testowania parametrów nowego kernela znajdujących się w folderze `TestowanieKernela`.
 
-**Uruchamianie skryptów do testowania**
-
-Skrypty te można uruchamiać w analogiczny sposób, jak główny skrypt do kompilacji. W pliku `lista_testow.txt` można dodać lub usunąć interesujące nas testy z dostępnych w narzędziu phoronix-test-suite. Uruchamianie:
-
-```
-# najpierw należy wykonać skrypt instalujący narzędzie phoronix-test-suite
-chmod +rwx phoronix_instalacja.sh
-./phoronix_instalacja.sh
-
-# następnie można uruchomić testy benchmark
-chmod +rwx auto_testy.sh
-./auto_testy.sh
-```
-
 ## Menu aplikacji
 
 Program po uruchomieniu najpierw pobiera i rozpakowuje pliki źródłowe jądra Linux spod linku podanego w zmiennych na początku skryptu. Następnie użytkownikowi zadawane jest pytanie:
@@ -111,6 +97,20 @@ Wybierając natomiast opcję 'T', od razu rozpocznie się proces kompilacji oraz
 
 Pliki źródłowe różnych wersji jądra Linux można pobrać np. ze strony [kernel.org](https://kernel.org/) lub bezpośrednio z repozytorium twórcy, Linusa Torvaldsa - [linux](https://github.com/torvalds/linux).
 
-Aby testować wydajność skompilowanych kerneli, można użyć narzędzia do testów benchmark [phoronix-test-suite](https://github.com/phoronix-test-suite/phoronix-test-suite). W katalogu `TestowanieKernela` można znaleźć dodatkowy skrypt instalujący to oprogramowanie - `phoronix_instalacja.sh` oraz drugi, do uruchamiania serii testów benchmark - `auto_testy.sh`. Sposób ich uruchamiania został również opisany w sekcji [instrukcja uruchamiania](#instrukcja-uruchamiania).
+Aby testować wydajność skompilowanych kerneli, można użyć narzędzia do testów benchmark [phoronix-test-suite](https://github.com/phoronix-test-suite/phoronix-test-suite). W katalogu `TestowanieKernela` można znaleźć dodatkowy skrypt instalujący to oprogramowanie - `phoronix_instalacja.sh` oraz drugi, do uruchamiania serii testów benchmark - `auto_testy.sh`. 
 
 Skrypt do testowania wczytuje testy do wykonania z pliku `lista_testow.txt`. Testy są w nim podzielone na grupy tj. "Pamięć", "Procesor" i w folerach o takich nazwach będą się zapisywać poszczególne wyniki testów w plikach .csv.
+
+**Uruchamianie skryptów do testowania**
+
+Skrypty te można uruchamiać w analogiczny sposób, jak główny skrypt do kompilacji. W pliku `lista_testow.txt` można dodać lub usunąć interesujące nas testy z dostępnych w narzędziu phoronix-test-suite. Uruchamianie:
+
+```
+# najpierw należy wykonać skrypt instalujący narzędzie phoronix-test-suite
+chmod +rwx phoronix_instalacja.sh
+./phoronix_instalacja.sh
+
+# następnie można uruchomić testy benchmark
+chmod +rwx auto_testy.sh
+./auto_testy.sh
+```
