@@ -75,7 +75,7 @@ Po zmianie ustawień i zamknięciu okna, ponownie zostaniemy zapytani, czy chcem
 Czy chcesz zmodyfikować plik konfiguracyjny (.config)? (T/n)
 ```
 
-Jeśli jesteśmy już zadowolenie z wybranych ustawień, powinniśmy wpisać opcję 'n'.
+Jeśli jesteśmy już zadowoleni z wybranych ustawień, powinniśmy wpisać odpowiedź 'n'.
 
 Następnie, użytkownik będzie miał wybór, czy chce wykonać kompilację jądra teraz, czy zostawić ten proces na później - kompilacja jest dość długotrwałym procesem i może zająć ok. 30 minut lub więcej:
 
