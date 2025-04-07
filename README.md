@@ -99,7 +99,7 @@ Pliki źródłowe różnych wersji jądra Linux można pobrać np. ze strony [ke
 
 Aby testować wydajność skompilowanych kerneli, można użyć narzędzia do testów benchmark [phoronix-test-suite](https://github.com/phoronix-test-suite/phoronix-test-suite). W katalogu `TestowanieKernela` można znaleźć dodatkowy skrypt instalujący to oprogramowanie - `phoronix_instalacja.sh` oraz drugi, do uruchamiania serii testów benchmark - `auto_testy.sh`. 
 
-Skrypt do testowania wczytuje testy do wykonania z pliku `lista_testow.txt`. Testy są w nim podzielone na grupy tj. "Pamięć", "Procesor" i w folerach o takich nazwach będą się zapisywać poszczególne wyniki testów w plikach .csv.
+Skrypt do testowania wczytuje testy do wykonania z pliku `lista_testow.txt`. Testy są w nim podzielone na grupy tj. "Pamięć", "Procesor" i w folderach o takich nazwach będą się zapisywać poszczególne wyniki testów w plikach `.csv`.
 
 **Uruchamianie skryptów do testowania**
 
