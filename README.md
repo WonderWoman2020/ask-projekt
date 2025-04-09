@@ -49,7 +49,7 @@ chmod +rw auto_kernel.sh
 ./auto_kernel.sh
 ```
 
-Jeśli po skompilowaniu kernela użytkownik chce przetestować nowe jądro, można skorzystać z dodatkowych skryptów do testowania parametrów nowego kernela znajdujących się w folderze `TestowanieKernela`. Sposób ich używania opisano w sekcji [Kernele do kompilacji i narzędzia benchmark](#kernele-do-kompilacji-i-narzędzia-benchmark).
+Jeśli po skompilowaniu kernela użytkownik chce przetestować nowe jądro, można skorzystać z dodatkowych skryptów do testowania parametrów nowego kernela znajdujących się w folderze `TestowanieKernela`. Sposób ich używania opisano w oddzielnym pliku `README.md`, znajdującym się w tym samym katalogu.
 
 ## Menu aplikacji
 
@@ -98,19 +98,3 @@ Wybierając natomiast opcję 'T', od razu rozpocznie się proces kompilacji oraz
 Pliki źródłowe różnych wersji jądra Linux można pobrać np. ze strony [kernel.org](https://kernel.org/) lub bezpośrednio z repozytorium twórcy, Linusa Torvaldsa - [linux](https://github.com/torvalds/linux).
 
 Aby testować wydajność skompilowanych kerneli, można użyć narzędzia do testów benchmark [phoronix-test-suite](https://github.com/phoronix-test-suite/phoronix-test-suite). W katalogu `TestowanieKernela` można znaleźć dodatkowy skrypt instalujący to oprogramowanie - `phoronix_instalacja.sh` oraz drugi, do uruchamiania serii testów benchmark - `auto_testy.sh`. 
-
-Skrypt do testowania wczytuje testy do wykonania z pliku `lista_testow.txt`. Testy są w nim podzielone na grupy tj. "Pamięć", "Procesor" i w folderach o takich nazwach będą się zapisywać poszczególne wyniki testów w plikach `.csv`.
-
-**Uruchamianie skryptów do testowania**
-
-Skrypty te można uruchamiać w analogiczny sposób, jak główny skrypt do kompilacji. W pliku `lista_testow.txt` można dodać lub usunąć interesujące nas testy z dostępnych w narzędziu phoronix-test-suite. Uruchamianie:
-
-```
-# najpierw należy wykonać skrypt instalujący narzędzie phoronix-test-suite
-chmod +rwx phoronix_instalacja.sh
-./phoronix_instalacja.sh
-
-# następnie można uruchomić testy benchmark
-chmod +rwx auto_testy.sh
-./auto_testy.sh
-```
